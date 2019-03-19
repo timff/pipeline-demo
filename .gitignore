@@ -1,0 +1,24 @@
+.DS_Store
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+selenium-debug.log
+package-lock.json
+yarn.lock
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
