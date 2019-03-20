@@ -1,0 +1,34 @@
+version: 0.1
+
+env:
+  variables:
+    CHROME_BIN: "/usr/bin/chromium-browser"
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+      - apt-get install apt-transport-https
+      # Setup build toolchain
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      - apt-get update -y
+      - apt-get install -y make yarn
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+      - yarn install
+  build:
+    commands:
+      - echo Entered the build phase...
+      - yarn run build
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist
