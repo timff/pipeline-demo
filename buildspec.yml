@@ -22,7 +22,6 @@ phases:
   build:
     commands:
       - echo Entered the build phase...
-      - yarn run build
   post_build:
     commands:
       - echo Entered the post_build phase...
